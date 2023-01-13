@@ -1,10 +1,12 @@
-package com.example.afternoon.Resource;
+package com.example.afternoon.resource;
 
-import com.example.afternoon.Entity.User;
-import com.example.afternoon.Service.UserService;
+import com.example.afternoon.entity.User;
+import com.example.afternoon.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/employee-mgt")
@@ -17,8 +19,15 @@ public class UserResource {
     }
 
     @GetMapping("/hello")
-    public String getUsers(){
+    public String createUser(){
         User user = userService.create("Java","DoB");
         return "Name: "+user.getUserName()+" "+"DoB: "+user.getUserDoB();
+    }
+
+    @GetMapping("/all")
+    public String getUsers(){
+        User user = userService.create("Java","DoB");
+        List<User> userList = userService.getAllUsers();
+        return userList.toString();
     }
 }

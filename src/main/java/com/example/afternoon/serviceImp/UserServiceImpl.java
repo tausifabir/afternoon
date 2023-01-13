@@ -1,9 +1,11 @@
-package com.example.afternoon.ServiceImp;
+package com.example.afternoon.serviceImp;
 
-import com.example.afternoon.Entity.User;
-import com.example.afternoon.Repository.UserRepository;
-import com.example.afternoon.Service.UserService;
+import com.example.afternoon.entity.User;
+import com.example.afternoon.repository.UserRepository;
+import com.example.afternoon.service.UserService;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -17,9 +19,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public User create(String userName, String userDoB) {
         User user = new User();
-        user.setId(1000L);
         user.setUserName(userName);
         user.setUserDoB(userDoB);
         return userRepository.save(user);
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
     }
 }

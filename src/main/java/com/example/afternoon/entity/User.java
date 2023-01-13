@@ -1,15 +1,13 @@
-package com.example.afternoon.Entity;
-
-import lombok.Data;
+package com.example.afternoon.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table
-public class User {
+public class User implements Serializable {
 
     @Id
-    @Column
+    @GeneratedValue
     private Long id;
     private String userName;
     private String userDoB;
@@ -36,5 +34,14 @@ public class User {
 
     public void setUserDoB(String userDoB) {
         this.userDoB = userDoB;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", userDoB='" + userDoB + '\'' +
+                '}';
     }
 }
