@@ -21,7 +21,7 @@ public class UserResource {
     @GetMapping("/hello")
     public String createUser(){
         User user = userService.create("Java","DoB");
-        return "Name: "+user.getUserName()+" "+"DoB: "+user.getUserDoB();
+        return "Name: "+user.getUserName();
     }
 
     @GetMapping("/all")
