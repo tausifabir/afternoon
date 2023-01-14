@@ -5,6 +5,6 @@ import com.example.afternoon.entity.User;
 import java.util.List;
 
 public interface UserService {
-    public User create(String userName, String userDoB);
+    public User create();
     public List<User> getAllUsers();
 }

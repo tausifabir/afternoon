@@ -22,9 +22,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User create(String userName, String userDoB) {
+    public User create() {
         User user = new User();
-        user.setUserName(userName);
+        user.setUserName("Java User");
         user.setPin("1001");
         user.setPhone("01234567890");
         user.setEmail("1234@email.com");
@@ -34,10 +34,9 @@ public class UserServiceImpl implements UserService {
         user.setManager(true);
         user.setJoiningDate(new Date());
         user.setCreatedAt(new Date());
-        List<Team> teams = teamRepository.findAll();
-        user.setTeam(teams.get(0));
+        /*List<Team> teams = teamRepository.findAll();
+        user.setTeam(teams.get(0));*/
         User savedUser = userRepository.save(user);
-        savedUser.setCreatedBy(savedUser);
         return savedUser;
     }
 

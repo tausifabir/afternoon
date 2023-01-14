@@ -19,15 +19,12 @@ public class UserResource {
     }
 
     @GetMapping("/hello")
-    public String createUser(){
-        User user = userService.create("Java","DoB");
-        return "Name: "+user.getUserName();
+    public User createUser(){
+        return userService.create();
     }
 
     @GetMapping("/all")
-    public String getUsers(){
-        User user = userService.create("Java","DoB");
-        List<User> userList = userService.getAllUsers();
-        return userList.toString();
+    public List<User> getUsers(){
+        return userService.getAllUsers();
     }
 }
